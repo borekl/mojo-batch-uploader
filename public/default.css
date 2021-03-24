@@ -1,0 +1,73 @@
+.droptarget {
+  width: 10em;
+  height: 10em;
+  border: 4px dashed black;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filelist {
+  margin: 2em 0;
+}
+
+.file {
+  display: inline-block;
+  border: 1px solid #888;
+  padding: 1em;
+  margin-right: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+#uinfo {
+  margin-bottom: 1em;
+}
+
+.file.success {
+  background-color: limegreen;
+}
+
+.file.failed {
+  background-color: rgb(252, 132, 130);
+}
+
+.tophalf {
+  display: flex;
+}
+
+.control {
+  margin-left: 2rem;
+}
+
+p.info span {
+  font-weight: bold;
+}
+
+p.status span {
+  font-weight: bold;
+}
+
+/*--- progress bar plugin */
+
+.pgbar-container {
+  display: inline-block;
+  position: relative;
+}
+
+.pgbar-message {
+  display: inline-block;
+  position: relative;
+  padding: 1em;
+  border: 1px solid black;
+  text-align: center;
+  z-index: 5;
+}
+
+.pgbar-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #5b5;
+}

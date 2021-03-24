@@ -1,0 +1,8 @@
+---
+secrets:
+  - 4f9fb4e117df3a2726132656688b2d704acea1ff
+
+flowjs: https://cdnjs.cloudflare.com/ajax/libs/flow.js/2.9.0/flow.min.js
+vuejs: https://unpkg.com/vue@next
+uploaddir: files
+stagingdir: staging

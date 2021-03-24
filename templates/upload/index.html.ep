@@ -1,0 +1,64 @@
+% layout 'default';
+% title 'Mojo Experiment / Batch File Upload with Flow.js';
+
+<h1><%= title %></h1>
+
+<div id="vuejsapp">
+
+<div class="tophalf">
+
+  <div class="droptarget" id="droptarget"><div>DROP<br>FILES<br>HERE</div></div>
+
+  <div class="control">
+
+    <button id="browse" v-if="!completed" :disabled="uploading"
+    >Browse Files</button>
+
+    <button v-if="!completed && files.length && !uploading"
+      @click="start_upload"
+    >Start Upload</button>
+
+    <button v-if="uploading" @click="reset">Cancel Upload</button>
+
+    <button v-if="retriable" id="retry">Retry</button>
+    <button v-if="retriable" id="abort">Abort</button>
+
+    <button v-if="files.length" @click="reset" :disabled="uploading"
+    >New Upload</button>
+
+    <div class="uinfo" id="uinfo"></div>
+
+    <p class="info">
+      Files: <span class="figure">{{ files.length }}</span>,
+      uploaded: <span class="figure">{{ completed_no }}</span>,
+      failed: <span class="figure">{{ failed_no }}</span>.
+    </p>
+
+    <p class="info">
+      Progress:<br>
+      <progress-bar width="14em" padding="0.3em 0.5em"
+        :value="Math.round(progress * 100)"
+      ></progress-bar>
+    </p>
+
+    <p class="status">
+      Status:
+      <span v-if="completed">completed</span>
+      <span v-if="uploading">uploading</span>
+      <span v-if="retriable">retriable</span>
+    </p>
+  </div>
+
+</div>
+
+<div class="filelist" id="filelist">
+  <progress-bar
+    v-for="file in files" :key="file.rfile.uniqueIdentifier"
+    padding="1em" margin="0 0.2em 0.2em 0" :value="Math.round(file.progress * 100)"
+  >
+    {{ file.rfile.name }}
+  </progress-bar>
+</div>
+
+</div>
+
